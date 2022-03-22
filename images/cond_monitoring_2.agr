@@ -1,7 +1,7 @@
 # Grace project file
 #
 @version 50125
-@page size 192, 341
+@page size 595, 842
 @page scroll 5%
 @page inout 5%
 @link page off
@@ -54,7 +54,7 @@
 @timestamp rot 0
 @timestamp font 4
 @timestamp char size 1.000000
-@timestamp def "Fri Feb 11 17:05:06 2022"
+@timestamp def "Thu Feb 17 11:34:14 2022"
 @r0 off
 @link r0 to g0
 @r0 type above
@@ -104,7 +104,7 @@
 @    world 0, 0, 95, 2.5
 @    stack world 0, 0, 0, 0
 @    znorm 1
-@    view 0.100000, 1.400000, 0.480000, 1.690000
+@    view 0.120000, 0.410000, 0.500000, 0.700000
 @    title ""
 @    title font 0
 @    title size 1.500000
@@ -223,7 +223,7 @@
 @    altyaxis  off
 @    legend on
 @    legend loctype view
-@    legend 0.724330219, 0.94891673
+@    legend 0.736048969, 0.96454173
 @    legend box color 1
 @    legend box pattern 1
 @    legend box linewidth 1.0
@@ -353,10 +353,10 @@
 @g1 fixedpoint format general general
 @g1 fixedpoint prec 6, 6
 @with g1
-@    world 0, 3.3, 95, 9.3
+@    world 0, 0.6, 100, 6.6
 @    stack world 0, 0, 0, 0
 @    znorm 1
-@    view 0.500000, 1.400000, 0.880000, 1.690000
+@    view 0.520000, 0.410000, 0.900000, 0.700000
 @    title ""
 @    title font 0
 @    title size 1.500000
@@ -429,7 +429,8 @@
 @    yaxis  bar linewidth 1.0
 @    yaxis  label "E"
 @    yaxis  label layout para
-@    yaxis  label place auto
+@    yaxis  label place spec
+@    yaxis  label place 0.000000, 0.075000
 @    yaxis  label char size 1.200000
 @    yaxis  label font 4
 @    yaxis  label color 1
@@ -496,7 +497,7 @@
 @    frame pattern 1
 @    frame background color 0
 @    frame background pattern 0
-@    s0 hidden false
+@    s0 hidden true
 @    s0 type xy
 @    s0 symbol 0
 @    s0 symbol size 1.000000
@@ -545,7 +546,7 @@
 @    s0 errorbar riser clip length 0.100000
 @    s0 comment "Cols 0:1"
 @    s0 legend  ""
-@    s1 hidden false
+@    s1 hidden true
 @    s1 type xy
 @    s1 symbol 0
 @    s1 symbol size 1.000000
@@ -594,8 +595,106 @@
 @    s1 errorbar riser clip length 0.100000
 @    s1 comment "Cols 0:1"
 @    s1 legend  ""
+@    s2 hidden false
+@    s2 type xy
+@    s2 symbol 0
+@    s2 symbol size 1.000000
+@    s2 symbol color 4
+@    s2 symbol pattern 1
+@    s2 symbol fill color 4
+@    s2 symbol fill pattern 0
+@    s2 symbol linewidth 1.0
+@    s2 symbol linestyle 1
+@    s2 symbol char 65
+@    s2 symbol char font 0
+@    s2 symbol skip 0
+@    s2 line type 1
+@    s2 line linestyle 1
+@    s2 line linewidth 1.0
+@    s2 line color 4
+@    s2 line pattern 1
+@    s2 baseline type 0
+@    s2 baseline off
+@    s2 dropline off
+@    s2 fill type 0
+@    s2 fill rule 0
+@    s2 fill color 1
+@    s2 fill pattern 1
+@    s2 avalue off
+@    s2 avalue type 2
+@    s2 avalue char size 1.000000
+@    s2 avalue font 0
+@    s2 avalue color 1
+@    s2 avalue rot 0
+@    s2 avalue format general
+@    s2 avalue prec 3
+@    s2 avalue prepend ""
+@    s2 avalue append ""
+@    s2 avalue offset 0.000000 , 0.000000
+@    s2 errorbar on
+@    s2 errorbar place both
+@    s2 errorbar color 4
+@    s2 errorbar pattern 1
+@    s2 errorbar size 1.000000
+@    s2 errorbar linewidth 1.0
+@    s2 errorbar linestyle 1
+@    s2 errorbar riser linewidth 1.0
+@    s2 errorbar riser linestyle 1
+@    s2 errorbar riser clip off
+@    s2 errorbar riser clip length 0.100000
+@    s2 comment "/Users/simo/repos/TDA-for-Slugging/NormEntropy_H0.dat"
+@    s2 legend  ""
+@    s3 hidden false
+@    s3 type xy
+@    s3 symbol 0
+@    s3 symbol size 1.000000
+@    s3 symbol color 2
+@    s3 symbol pattern 1
+@    s3 symbol fill color 2
+@    s3 symbol fill pattern 0
+@    s3 symbol linewidth 1.0
+@    s3 symbol linestyle 1
+@    s3 symbol char 65
+@    s3 symbol char font 0
+@    s3 symbol skip 0
+@    s3 line type 1
+@    s3 line linestyle 1
+@    s3 line linewidth 1.0
+@    s3 line color 2
+@    s3 line pattern 1
+@    s3 baseline type 0
+@    s3 baseline off
+@    s3 dropline off
+@    s3 fill type 0
+@    s3 fill rule 0
+@    s3 fill color 1
+@    s3 fill pattern 1
+@    s3 avalue off
+@    s3 avalue type 2
+@    s3 avalue char size 1.000000
+@    s3 avalue font 0
+@    s3 avalue color 1
+@    s3 avalue rot 0
+@    s3 avalue format general
+@    s3 avalue prec 3
+@    s3 avalue prepend ""
+@    s3 avalue append ""
+@    s3 avalue offset 0.000000 , 0.000000
+@    s3 errorbar on
+@    s3 errorbar place both
+@    s3 errorbar color 2
+@    s3 errorbar pattern 1
+@    s3 errorbar size 1.000000
+@    s3 errorbar linewidth 1.0
+@    s3 errorbar linestyle 1
+@    s3 errorbar riser linewidth 1.0
+@    s3 errorbar riser linestyle 1
+@    s3 errorbar riser clip off
+@    s3 errorbar riser clip length 0.100000
+@    s3 comment "/Users/simo/repos/TDA-for-Slugging/NormEntropy_H1.dat"
+@    s3 legend  ""
 @g2 on
-@g2 hidden false
+@g2 hidden true
 @g2 type XY
 @g2 stacked false
 @g2 bar hgap 0.000000
@@ -860,7 +959,7 @@
 @    world 0, 0, 95, 400
 @    stack world 0, 0, 0, 0
 @    znorm 1
-@    view 0.500000, 1.070000, 0.880000, 1.370000
+@    view 0.120000, 0.080000, 0.500000, 0.380000
 @    title ""
 @    title font 0
 @    title size 1.500000
@@ -931,13 +1030,13 @@
 @    yaxis  bar color 1
 @    yaxis  bar linestyle 1
 @    yaxis  bar linewidth 1.0
-@    yaxis  label "<\f{Symbol}b\s0\N>."
+@    yaxis  label "<\f{Symbol}b\s0\N>"
 @    yaxis  label layout para
 @    yaxis  label place auto
 @    yaxis  label char size 1.200000
 @    yaxis  label font 4
 @    yaxis  label color 1
-@    yaxis  label place opposite
+@    yaxis  label place normal
 @    yaxis  tick on
 @    yaxis  tick major 100
 @    yaxis  tick minor ticks 1
@@ -963,7 +1062,7 @@
 @    yaxis  ticklabel angle 0
 @    yaxis  ticklabel skip 0
 @    yaxis  ticklabel stagger 0
-@    yaxis  ticklabel place opposite
+@    yaxis  ticklabel place normal
 @    yaxis  ticklabel offset auto
 @    yaxis  ticklabel offset 0.000000 , 0.010000
 @    yaxis  ticklabel start type auto
@@ -1161,7 +1260,7 @@
 @    world 0, 0, 95, 9
 @    stack world 0, 0, 0, 0
 @    znorm 1
-@    view 0.300000, 0.650000, 0.700000, 0.950000
+@    view 0.520000, 0.080000, 0.900000, 0.380000
 @    title ""
 @    title font 0
 @    title size 1.500000
@@ -1238,7 +1337,7 @@
 @    yaxis  label char size 1.200000
 @    yaxis  label font 4
 @    yaxis  label color 1
-@    yaxis  label place normal
+@    yaxis  label place opposite
 @    yaxis  tick on
 @    yaxis  tick major 2
 @    yaxis  tick minor ticks 1
@@ -1264,7 +1363,7 @@
 @    yaxis  ticklabel angle 0
 @    yaxis  ticklabel skip 0
 @    yaxis  ticklabel stagger 0
-@    yaxis  ticklabel place normal
+@    yaxis  ticklabel place opposite
 @    yaxis  ticklabel offset auto
 @    yaxis  ticklabel offset 0.000000 , 0.010000
 @    yaxis  ticklabel start type auto
@@ -1745,6 +1844,204 @@
 93 5.636855
 94 5.6733213
 95 5.7065795
+&
+@target G1.S2
+@type xy
+0 2.0890721
+1 2.0950835
+2 2.0956983
+3 2.0932139
+4 2.0914991
+5 2.0878178
+6 2.0833434
+7 2.0829089
+8 2.0792559
+9 2.0767546
+10 2.0764222
+11 2.0773275
+12 2.078122
+13 2.0835787
+14 2.0840982
+15 2.0843311
+16 2.0766355
+17 2.0724841
+18 1.9496521
+19 1.8501157
+20 1.761113
+21 1.6902507
+22 1.630799
+23 1.5310935
+24 1.4834466
+25 1.4309413
+26 1.3898906
+27 1.3458847
+28 1.3215274
+29 1.2926885
+30 1.2679842
+31 1.2483485
+32 1.2315358
+33 1.2175127
+34 1.200924
+35 1.1929821
+36 1.1833705
+37 1.1759562
+38 1.1686996
+39 1.1630004
+40 1.1599506
+41 1.1551586
+42 1.1522332
+43 1.1498613
+44 1.1478672
+45 1.1458953
+46 1.1443629
+47 1.1441359
+48 1.144552
+49 1.1452738
+50 1.146373
+51 1.1492255
+52 1.1523394
+53 1.1561677
+54 1.1595804
+55 1.1654996
+56 1.1712622
+57 1.177978
+58 1.1857355
+59 1.1967064
+60 1.2064343
+61 1.2178288
+62 1.2304634
+63 1.2478335
+64 1.2652215
+65 1.2828771
+66 1.3053121
+67 1.3319345
+68 1.3613368
+69 1.3871225
+70 1.4341944
+71 1.4709786
+72 1.524821
+73 1.5668098
+74 1.6634196
+75 1.7286389
+76 1.7811939
+77 1.8644276
+78 1.9392661
+79 1.9632761
+80 1.9995516
+81 2.0393148
+82 2.062099
+83 2.0680366
+84 2.0715029
+85 2.0793797
+86 2.0776636
+87 2.0830188
+88 2.0823885
+89 2.083965
+90 2.0863259
+91 2.0811785
+92 2.0810019
+93 2.0749452
+94 2.0779643
+95 2.0709327
+&
+@target G1.S3
+@type xy
+0 3.7841357
+1 3.7577203
+2 3.7918108
+3 3.8043396
+4 3.7547198
+5 3.7937533
+6 3.7039522
+7 3.8684774
+8 3.8352109
+9 3.9796655
+10 4.0280011
+11 4.3208561
+12 4.3428503
+13 4.7111709
+14 4.6528655
+15 5.0672098
+16 5.0611717
+17 5.2194085
+18 5.4089392
+19 5.0434251
+20 5.0456787
+21 3.3371208
+22 3.3234373
+23 2.220731
+24 1.9581828
+25 1.8525632
+26 1.6706728
+27 1.6333127
+28 1.4580294
+29 1.4473661
+30 1.3391585
+31 1.3073328
+32 1.2236247
+33 1.2221018
+34 1.1772283
+35 1.1451212
+36 1.1605045
+37 1.0993615
+38 1.1206067
+39 1.0915845
+40 1.0973198
+41 1.127731
+42 1.1679982
+43 1.178152
+44 1.1893372
+45 1.2133873
+46 1.2115994
+47 1.2327675
+48 1.2518219
+49 1.2435784
+50 1.2638823
+51 1.2580213
+52 1.3184635
+53 1.3202783
+54 1.3614372
+55 1.3587772
+56 1.4114813
+57 1.3983582
+58 1.4276089
+59 1.4429386
+60 1.4489811
+61 1.4629514
+62 1.4705266
+63 1.5074774
+64 1.5197082
+65 1.5767175
+66 1.5721464
+67 1.6559279
+68 1.6628149
+69 1.806238
+70 1.828625
+71 2.0692748
+72 2.0822732
+73 2.6357272
+74 2.649625
+75 3.2157191
+76 3.2295775
+77 4.6586101
+78 4.5359768
+79 4.4290634
+80 4.8680721
+81 5.1570402
+82 5.1512328
+83 5.1885412
+84 5.7442803
+85 5.5788031
+86 5.4864011
+87 5.5394204
+88 5.572826
+89 5.3901285
+90 5.1359248
+91 4.8099786
+92 4.7447313
+93 4.4183099
+94 4.4008554
+95 4.3042607
 &
 @target G2.S0
 @type xy
