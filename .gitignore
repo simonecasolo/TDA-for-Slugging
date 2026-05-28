@@ -127,3 +127,18 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Project-specific
+outputs/
+*.xcf
+*.agr
+*.eps
+*.ps
+
+# macOS
+.DS_Store
+
+# Local data directories (not committed)
+/Users/simo/Repos/TDA/Slugging/Data/
+data/
+
