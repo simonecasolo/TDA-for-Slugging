@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hodge-slugging"
+version = "0.1.0"
+description = "Hodge Laplacian topological signal processing for severe slugging identification"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "scikit-learn>=1.3",
+    "giotto-tda>=0.6",
+    "ripser>=0.6",
+    "persim>=0.3",
+    "umap-learn>=0.5",
+    "matplotlib>=3.7",
+    "pandas>=2.0",
+    "joblib>=1.3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "jupyter>=1.0",
+    "black>=23.0",
+    "ruff>=0.1",
+]
+
+[tool.setuptools.packages.find]
+include = ["hodge*", "monitoring*", "classification*", "utils*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=hodge --cov=monitoring --cov=classification --cov=utils"
