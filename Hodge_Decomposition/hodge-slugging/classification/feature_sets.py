@@ -11,12 +11,12 @@ Four feature sets are compared (Section 5 of the paper):
 from __future__ import annotations
 
 BASELINE_SCALAR_FEATURES = [
-    "entropy_h0",
-    "entropy_h1",
-    "p_inf_h0",
-    "p_inf_h1",
+    "max_pers_h0",
+    "max_pers_h1",
     "mean_betti0",
     "mean_betti1",
+    "entropy_norm_h0",
+    "entropy_norm_h1",
 ]
 
 HODGE_FEATURES = [
