@@ -1,11 +1,12 @@
 """
 Feature set definitions for the 3W dataset classification experiment.
 
-Four feature sets are compared (Section 5 of the paper):
-  baseline_scalar  : 8 persistence indicators from the baseline paper
-  baseline_image   : persistence images (best baseline)
-  hodge_only       : 7 Hodge-derived features
-  hodge_augmented  : baseline_scalar + hodge_only (14 features)
+Feature sets compared (Section 5 of the paper):
+  baseline_scalar      : 6 persistence indicators from the baseline paper
+  hodge_only           : 8 Hodge-derived features (incl. winding_number)
+  hodge_augmented      : baseline_scalar + hodge_only (14 features)
+  full_hodge           : hodge_only + L1 spectrum (18 features)
+  hodge_augmented_full : baseline_scalar + full_hodge (24 features)
 """
 
 from __future__ import annotations
@@ -27,14 +28,21 @@ HODGE_FEATURES = [
     "beta1_hodge",
     "lambda1",
     "spectral_gap",
+    "winding_number",
 ]
 
-HODGE_AUGMENTED_FEATURES = BASELINE_SCALAR_FEATURES + HODGE_FEATURES
+EIG_FEATURES = [f"eig_{i:02d}" for i in range(1, 11)]
+
+HODGE_AUGMENTED_FEATURES      = BASELINE_SCALAR_FEATURES + HODGE_FEATURES
+FULL_HODGE_FEATURES            = HODGE_FEATURES + EIG_FEATURES
+HODGE_AUGMENTED_FULL_FEATURES  = BASELINE_SCALAR_FEATURES + FULL_HODGE_FEATURES
 
 FEATURE_SETS = {
-    "baseline_scalar": BASELINE_SCALAR_FEATURES,
-    "hodge_only": HODGE_FEATURES,
-    "hodge_augmented": HODGE_AUGMENTED_FEATURES,
+    "baseline_scalar":      BASELINE_SCALAR_FEATURES,
+    "hodge_only":           HODGE_FEATURES,
+    "hodge_augmented":      HODGE_AUGMENTED_FEATURES,
+    "full_hodge":           FULL_HODGE_FEATURES,
+    "hodge_augmented_full": HODGE_AUGMENTED_FULL_FEATURES,
 }
 
 # Labels matching the 3W dataset convention

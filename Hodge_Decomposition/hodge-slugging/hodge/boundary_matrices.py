@@ -1,9 +1,9 @@
 """
-Boundary matrix construction for Vietoris-Rips complexes.
+Boundary matrix construction for simplicial complexes.
 
 Builds the node-edge (B1) and edge-triangle (B2) boundary matrices
-required for Hodge Laplacian computation. No GUDHI dependency:
-uses ripser-compatible distance matrices and scipy sparse arrays.
+required for Hodge Laplacian computation.  Supports both Vietoris-Rips
+complexes (no GUDHI required) and Alpha complexes (requires GUDHI).
 """
 
 from __future__ import annotations
@@ -86,6 +86,57 @@ def get_rips_simplices(
         node_idx=node_idx,
         edge_idx=edge_idx,
     )
+
+
+def get_alpha_simplices(
+    point_cloud: np.ndarray,
+    alpha_sq: float,
+    max_dim: int = 2,
+) -> SimplicialComplex:
+    """
+    Build a simplicial complex from a gudhi AlphaComplex at a fixed filtration.
+
+    gudhi AlphaComplex uses squared circumradii (α²) as filtration values.
+    Pass alpha_sq directly from the persistence diagram — no unit conversion.
+    Compared to Vietoris-Rips, alpha complexes have far fewer simplices
+    (O(N) via Delaunay triangulation vs. potentially O(N^3) for Rips).
+
+    Parameters
+    ----------
+    point_cloud : np.ndarray, shape (n_points, n_dims)
+        Takens-embedded signal (any dimensionality).
+    alpha_sq : float
+        Filtration threshold in α² (squared circumradius). All simplices
+        with birth ≤ alpha_sq are included in the complex.
+    max_dim : int
+        Maximum simplex dimension (default 2 for Hodge-1 decomposition).
+
+    Returns
+    -------
+    SimplicialComplex
+    """
+    import gudhi
+    n = len(point_cloud)
+    ac = gudhi.AlphaComplex(points=point_cloud.tolist())
+    st = ac.create_simplex_tree()
+
+    # All points are always 0-simplices (born at filtration 0).
+    nodes = [(i,) for i in range(n)]
+    node_idx = {i: i for i in range(n)}
+    edges: list[tuple] = []
+    triangles: list[tuple] = []
+
+    for simplex, filt in st.get_filtration():
+        if filt > alpha_sq:
+            continue
+        dim = len(simplex) - 1
+        if dim == 1 and max_dim >= 1:
+            edges.append(tuple(simplex))
+        elif dim == 2 and max_dim >= 2:
+            triangles.append(tuple(simplex))
+
+    edge_idx = {e: j for j, e in enumerate(edges)}
+    return SimplicialComplex(nodes, edges, triangles, node_idx, edge_idx)
 
 
 def build_boundary_matrices(
