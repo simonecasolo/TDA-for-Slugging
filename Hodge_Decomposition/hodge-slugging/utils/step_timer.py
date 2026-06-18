@@ -120,31 +120,31 @@ def time_steps(signal, label=""):
     cloud = StandardScaler().fit_transform(cloud)
     t["4_scaler"] = time.perf_counter() - t0
 
-    # 5. Ripser VR on full-dimensional cloud → persistence features
+    # 5. Ripser VR on full-dimensional cloud → persistence diagram
     t0 = time.perf_counter()
     diag_full     = _pers_diag(cloud)
     diag_full_fin = diag_full[np.isfinite(diag_full[:, 1])]
     t["5_ripser_full"] = time.perf_counter() - t0
 
-    # 6. PCA(3) — for Hodge complex and epsilon selection
-    t0 = time.perf_counter()
-    pca_dim   = min(ALPHA_PCA_DIM, d, n_pts - 1)
-    cloud_low = PCA(n_components=pca_dim).fit_transform(cloud)
-    t["6_pca"] = time.perf_counter() - t0
-
-    # 7. Alpha on PCA-3D cloud → epsilon selection (scale-compatible with Hodge)
-    t0 = time.perf_counter()
-    diag_low     = _alpha_diag(cloud_low)
-    diag_low_fin = diag_low[np.isfinite(diag_low[:, 1])]
-    t["7_alpha_3d"] = time.perf_counter() - t0
-
-    # 8. PersistenceEntropy + BettiCurve (from full-dim Ripser diagram)
+    # 6. PersistenceEntropy + BettiCurve from full-dim Ripser diagram — before PCA
     t0 = time.perf_counter()
     if len(diag_full_fin) > 0:
         diag_batch = diag_full_fin[np.newaxis]
         PersistenceEntropy(normalize=True, nan_fill_value=0.0).fit_transform(diag_batch)
         BettiCurve().fit_transform(diag_batch)
-    t["8_pers_features"] = time.perf_counter() - t0
+    t["6_pers_features"] = time.perf_counter() - t0
+
+    # 7. PCA(3) — for Hodge complex and epsilon selection
+    t0 = time.perf_counter()
+    pca_dim   = min(ALPHA_PCA_DIM, d, n_pts - 1)
+    cloud_low = PCA(n_components=pca_dim).fit_transform(cloud)
+    t["7_pca"] = time.perf_counter() - t0
+
+    # 8. Alpha on PCA-3D cloud → epsilon selection (scale-compatible with Hodge)
+    t0 = time.perf_counter()
+    diag_low     = _alpha_diag(cloud_low)
+    diag_low_fin = diag_low[np.isfinite(diag_low[:, 1])]
+    t["8_alpha_3d"] = time.perf_counter() - t0
 
     # 9. epsilon_from_diagram (from 3D Alpha diagram — Hodge-compatible scale)
     t0 = time.perf_counter()
